@@ -1,0 +1,94 @@
+
+
+let's have user roles. fiel_officer, cashier, manager, boss. each with different privileges. 
+- selecting a client who has brought money should be a select with a search, not just a drop down.
+- ensure that all toasts appear above modals. some don't. 
+- even field officer should be a select, not a search.
+- field officers should also be soft delete
+
+TARGETS. 
+- implement a feature to view the payment history for clinets who have taken more than one loan overtime
+- work on special characters. they shouldn't break the system
+- synchronize all phone numbers to 07... formart. 
+- make email in field officer optional
+- ensure a client doesn't get a loan if they have an active loan
+- take time and organize well the sections in code, especially in js so that you know which section does that.
+- work on the editing the clinet module
+- filter clients by those who are active and those who are not
+- work on deactivating a field officer
+- confirm that there's no where where we are printing the error to the user
+- don't make all the fields requried, when creating clients or field officers.
+- work on editing clients very well. so that all necessary fields are edited, like the percentage and others
+- add a see password functionality
+- design a very good template for printing papers. with apec logo. it should be a class, but callers can customize it
+- verify that the submitted recorded by id is the same id associated with the client. 
+- check what happens when a client makes two paymetns on the same day
+- some emails fields should not be required.f
+- find out why the sponners are different for balance and cash in ain cash out
+- find a way to show the field officer when seelcting a client on cashier collections
+- think about editing transactions. no man is an island
+- do proper testing. for each module. things like required, and all that. and make sure that required fields are indeed requried
+- think about the profile
+
+
+URGENT. 
+- work on reports module. starting from income statement. 
+- there's somewhere where the paid percentage has to go to reports. call for clarification
+- think about backdating transactions whicn can affect reports
+- 
+- total cash in and total cash out should be 0 at midnight. but balance can stay. so that means that we show just daily cash in and daily cash out. (there should be a way to select a date to show the cash in which defaults to today. and there should be an easy way to select today so quickly go back to today's cash in and cash out)
+- system should allow editing previous date up to 11:00 noon. and should not allow  editn gpast that time. and make sunday special
+- people who have more than one loan should show history of the active loan. but if htey have cleared, then selecting hisotry should have a way to select different loans and see their payment history, which can be printed
+- history of payment should be printed. 
+- hover on active/cleared clients should not show white color. it shoule show those colors just more concentrated.
+- a client cannot take more than 100,000 from the money they took last time
+- date should be organized well, not 2026 starting. and  see what should be on that table
+- arrias should be in red to mean danger. and put a print button
+- don't record cash in infront. remove that
+
+
+TESTING & FINALIZING
+- work on special characters
+- test responsiveness
+- clean code
+
+FINISHED
+-     finished clients should not appear in the count of the clients 
+-  put a percnetage on field officer to show the percentage of people that have paid. 
+
+deliverables 01/10/2026
+- put total percentage
+- 
+
+DELIVERABLES - 05TH OCTOBER
+- cash in brought at the office shold go to cashier. (cashier is also like a field officer)
+- cash in brought at the office should make the person move from unpaid. but then should not go to paid, and should reduce the percentage of the field officer.
+- add mortgage ie omusingo. where there's guarantor location. 
+- paid percentage can also go to the dashboard
+- change the spelling of arrias
+
+
+DELIVERABLES - 09TH OCTOBER
+- test user module
+
+
+
+QUESTIONS TO ASK TATS. 
+- SHOULD EMAILS BE COMPULSORY?
+- 
+
+
+
+
+
+- 
+- update code to use decode and escape html
+- clean code and reduce the number of lines
+- work on srs document
+- make the cash in and cash out be 0 and a way to check the cash in made yesterday. there should be also a way to print cash in and cash out for given period
+- finalize dashbaord
+- work on profile
+- thik about the security of your system
+- work on account set up process
+
+

@@ -1,0 +1,93 @@
+# version: "3.9"
+
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+
+#     container_name: apec-mavic-app
+
+#     working_dir: /workspaces/${COMPOSE_PROJECT_NAME:-project}
+
+#     volumes:
+#       - .:/workspaces/${COMPOSE_PROJECT_NAME:-project}
+
+#     depends_on:
+#       - mysql
+
+#   mysql:
+#     image: mysql:8.0
+
+#     container_name: apec-mavic-mysql
+
+#     restart: unless-stopped
+
+#     environment:
+#       MYSQL_ROOT_PASSWORD: rootpassword
+
+#       MYSQL_DATABASE: apec_mavic_db
+
+#       MYSQL_USER: apec
+
+#       # Change this to your database password.
+#       # Leave it empty ("") if you don't want one.
+#       MYSQL_PASSWORD: "apec@2026"
+
+#     command: --default-authentication-plugin=mysql_native_password
+
+#     ports:
+#       - "3306:3306"
+
+#     volumes:
+#       - mysql_data:/var/lib/mysql
+#       - ./database/apec_mavic_db.sql:/docker-entrypoint-initdb.d/apec_mavic_db.sql
+
+# volumes:
+#   mysql_data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: apec-mavic-app
+
+    working_dir: /workspaces/apec-mavic
+
+    volumes:
+      - .:/workspaces/apec-mavic
+
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - mysql
+
+    command: /workspaces/apec-mavic/start.sh
+
+  mysql:
+    image: mysql:8.0
+
+    container_name: apec-mavic-mysql
+
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: apec_mavic_db
+      MYSQL_USER: apec
+      MYSQL_PASSWORD: "apec@2026"
+
+    command: --default-authentication-plugin=mysql_native_password
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/apec_mavic_db.sql:/docker-entrypoint-initdb.d/apec_mavic_db.sql:ro
+
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql_data:

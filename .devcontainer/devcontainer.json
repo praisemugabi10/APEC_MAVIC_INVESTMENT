@@ -1,0 +1,67 @@
+// {
+//     "name": "APEC Mavic Development",
+
+//     "dockerComposeFile": "../docker-compose.yml",
+
+//     "service": "app",
+
+//     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+//     "shutdownAction": "stopCompose",
+
+//     "forwardPorts": [
+//         3306
+//     ],
+
+//     "customizations": {
+//         "vscode": {
+//             "extensions": [
+//                 "bmewburn.vscode-intelephense-client",
+//                 "xdebug.php-debug",
+//                 "GitHub.copilot",
+//                 "GitHub.copilot-chat",
+//                 "esbenp.prettier-vscode",
+//                 "formulahendry.auto-rename-tag",
+//                 "mikestead.dotenv"
+//             ]
+//         }
+//     }
+// }
+
+{
+    "name": "APEC Mavic Development",
+
+    "dockerComposeFile": "../docker-compose.yml",
+
+    "service": "app",
+
+    "workspaceFolder": "/workspaces/apec-mavic",
+
+    "shutdownAction": "stopCompose",
+
+    "forwardPorts": [
+        8000
+    ],
+
+    "portsAttributes": {
+        "8000": {
+            "label": "APEC Mavic PHP Server",
+            "protocol": "http",
+            "onAutoForward": "openBrowser"
+        }
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "esbenp.prettier-vscode",
+                "formulahendry.auto-rename-tag",
+                "mikestead.dotenv"
+            ]
+        }
+    }
+}

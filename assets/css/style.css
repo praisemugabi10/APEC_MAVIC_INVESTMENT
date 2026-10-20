@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #2563eb;
+  --sidebar-bg: #0f172a;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #f8fafc;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: scale(1) !important;
+}
+
+.nav-link.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+/* Animation for History Popups */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.mobile-bottom-sheet {
+  animation: slideInUp 0.3s ease-out;
+}
+
+/* Hide sections */
+.page-section {
+  display: none;
+}
+
+.page-section.active {
+  display: block;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #report-printable,
+  #report-printable * {
+    visibility: visible;
+  }
+
+  #report-printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+
+/* custom styles for responsive modal system */
+/* Custom Input styling to override Bootstrap defaults */
+.custom-input:focus {
+  border-color: #2563eb !important;
+  /* Blue-600 */
+  background-color: #fff !important;
+}
+
+/* Modal radius logic: Square on mobile full-screen, Rounded on desktop */
+@media (max-width: 575.98px) {
+  .rounded-mobile-none {
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .rounded-desktop-3xl {
+    border-radius: 2.5rem !important;
+  }
+}
+
+/* Customizing the Bootstrap backdrop blur */
+.modal-backdrop.show {
+  opacity: 0.6;
+  background-color: #0f172a;
+  /* slate-900 */
+  backdrop-filter: blur(4px);
+}
+
+/* Smooth scaling animation for Bootstrap Modals */
+.modal.fade .modal-dialog {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+/* toast system */
+/* Entrance: Pops in, bounces slightly beyond 1, settles at 1 */
+@keyframes toast-in {
+  0% {
+    transform: translateX(100%) scale(0.7);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateX(-15px) scale(1.05);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Exit: Swells slightly (heartbeat), then snaps down to 0 and flies out */
+@keyframes toast-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  /* The 'beat' before leaving */
+  100% {
+    transform: scale(0.4) translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes progress-load {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+.toast-card {
+  animation: toast-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transition: all 0.4s ease;
+}
+
+/* Class to trigger the exit animation */
+.toast-card.exit {
+  animation: toast-out 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+}
+
+.toast-progress {
+  animation: progress-load 3s linear forwards;
+}
+
+/* dashbaord */
+/* SIDEBAR */
+#sidebar {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+  width: 18rem;
+  z-index: 100;
+  overflow: visible !important;
+}
+
+/* DESKTOP COLLAPSED SIDEBAR */
+@media (min-width: 1024px) {
+  #sidebar.collapsed {
+    width: 5.5rem;
+  }
+
+  #sidebar.collapsed .nav-text {
+    display: none;
+  }
+
+  #sidebar.expanding .nav-text {
+    opacity: 0;
+  }
+
+  #sidebar .nav-text {
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  /* Prevent sidebar text from wrapping during width transition */
+  #sidebar .nav-text {
+    white-space: nowrap;
+  }
+
+  #sidebar.collapsed .nav-link {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #sidebar.collapsed .nav-link.active {
+    background: var(--primary);
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0 auto;
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* TOOLTIPS */
+  .sidebar-tooltip {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 1rem;
+    background: #1e293b;
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  #sidebar.collapsed .nav-link:hover .sidebar-tooltip,
+  #sidebar.collapsed .group:hover .sidebar-tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(5px);
+  }
+
+  .sidebar-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #1e293b;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 1023px) {
+  .sidebar-tooltip {
+    display: none !important;
+  }
+
+  #sidebar.collapsed {
+    width: 18rem;
+  }
+}
+
+/* COMPACT TABLE ROWS */
+.compact-table th,
+.compact-table td {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* custom modal shadows */
+.modal-content {
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35) !important;
+}
+
+.modal-backdrop.show {
+    opacity: 0.65 !important;
+    background-color: #0f172a !important;
+}
+
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* hide scroll bars on sidebar */
+.hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* reports */
+@media print {
+    body {
+        background: #fff !important;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    #report-printable,
+    #report-printable * {
+        visibility: visible;
+    }
+
+    #report-printable {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        padding: 10mm !important;
+        margin: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    #report-printable table {
+        width: 100%;
+        min-width: 0 !important;
+        font-size: 10px;
+    }
+
+    #report-printable tr {
+        break-inside: avoid;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* make transaction table no wrap */
+.transaction-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.transaction-table {
+    width: max-content;
+    min-width: 100%;
+}
+
+.transaction-table th,
+.transaction-table td {
+    white-space: nowrap;
+}

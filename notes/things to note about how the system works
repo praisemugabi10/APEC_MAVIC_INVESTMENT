@@ -1,0 +1,5 @@
+1. giving a loan to an existing client. 
+- if a client who had completed a loan wants to get another one, and is still brought by the field officer who had brought him earlier, then the system supports. 
+- however if the field officer changes, then this should be registered as a new client. 
+- total percentage  = paid/total * 100
+- 

@@ -1,0 +1,8 @@
+things to fix in apec mavic
+1. when login fails, the button is stack on the spinner. this is the same for verifying the token
+2. the toast on register officer is below the modal
+3. logging in with invalid credentials triggers the sending email spinner. sending process should come after verification, and the user should be notified of the on going process
+4. there should be a sidebar toogler. thsi when clicked should bring the sidebar, and close it, but leaving icons only.
+5. ensure that when a client is added, then by ajax, the client dropdown in the whole system should be updated.
+6. validation in js should go back up to the modal or the form being field and fill it with the required fields in red.
+7. the values in the loan amount, and other amounts, should be formatted iwth commas.

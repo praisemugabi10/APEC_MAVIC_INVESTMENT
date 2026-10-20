@@ -1,0 +1,26 @@
+// changes made for the new loan functionality
+[components/client_modals.php](/workspaces/APEC_MAVIC_INVESTMENT/components/client_modals.php)
+- Added hidden existing-client ID.
+- Made the title and save button reusable for “New Loan.”
+
+[assets/js/manage_field_officer_clients.js](/workspaces/APEC_MAVIC_INVESTMENT/assets/js/manage_field_officer_clients.js)
+- Added the New Loan action for cleared loans only.
+- Prefills borrower, officer, and previous guarantor details.
+- Refreshes the open field-officer client modal after a loan is issued.
+
+[assets/js/manage_client.js](/workspaces/APEC_MAVIC_INVESTMENT/assets/js/manage_client.js)
+- Resets the modal correctly for normal new-client registration.
+- Sends client_id only when issuing a repeat loan.
+- Refreshes both the main client list and officer modal after success.
+
+[api/manage_field_officer.php](/workspaces/APEC_MAVIC_INVESTMENT/api/manage_field_officer.php)
+- Returns the client’s officer ID and latest guarantor details for the prefill.
+
+[api/manage_client.php](/workspaces/APEC_MAVIC_INVESTMENT/api/manage_client.php)
+- Enhanced the existing createClient() logic rather than adding a duplicate endpoint.
+- Reuses and updates the existing client when client_id is provided.
+- Requires their latest loan to be cleared.
+- Creates a new guarantor and new loan in the same transaction.
+
+// updates made
+1. count means clients with an active loan

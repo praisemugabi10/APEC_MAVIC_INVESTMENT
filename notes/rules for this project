@@ -1,0 +1,29 @@
+1. connection is found in config/db.php. it uses pdo, and $conn variable. 
+2. db.php has a function function sanitize_data(mixed $data): mixed
+{
+    if (is_array($data)) {
+        return array_map('sanitize_data', $data);
+    }
+
+    if (!is_string($data)) {
+        return $data;
+    }
+
+    return html_entity_decode(
+        strip_tags($data),
+        ENT_QUOTES | ENT_HTML5,
+        'UTF-8'
+    );
+}
+used for sanitizing incoming and outgoing data. 
+3. i use named parameters, when writing sql, not ?
+4. always bind parameters before executing. 
+5. when binding parameter, write that line in one line.
+6. always use DIR incase you want to include/requrie once a file
+7. use thsi style of commenting, and only comment on important sections. 
+/*
+|--------------------------------------------------------------------------
+| Insert Category
+|--------------------------------------------------------------------------
+*/
+8. 
