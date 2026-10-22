@@ -36,8 +36,10 @@ URGENT.
 - there's somewhere where the paid percentage has to go to reports. call for clarification
 - think about backdating transactions whicn can affect reports
 - 
-- total cash in and total cash out should be 0 at midnight. but balance can stay. so that means that we show just daily cash in and daily cash out. (there should be a way to select a date to show the cash in which defaults to today. and there should be an easy way to select today so quickly go back to today's cash in and cash out)
+- total cash in and total cash out should be 0 at midnight. but balance can stay. so that means that we show just daily cash in and daily cash out. (there should be a way to select a date to show the cash in which defaults to today. and there should be an easy way  to select today so quickly go back to today's cash in and cash out)
 - system should allow editing previous date up to 11:00 noon. and should not allow  editn gpast that time. and make sunday special
+
+
 - people who have more than one loan should show history of the active loan. but if htey have cleared, then selecting hisotry should have a way to select different loans and see their payment history, which can be printed
 - history of payment should be printed. 
 - hover on active/cleared clients should not show white color. it shoule show those colors just more concentrated.
@@ -46,6 +48,10 @@ URGENT.
 - arrias should be in red to mean danger. and put a print button
 - don't record cash in infront. remove that
 
+
+-- let the balance not go to negative
+-- table time not good
+- cleitn modal should refetch field officers
 
 TESTING & FINALIZING
 - work on special characters
